@@ -1,0 +1,4 @@
+{
+    "port":1338,
+    "tokenLifeTimeMS":3600000
+}
