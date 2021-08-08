@@ -93,16 +93,16 @@ server.on("connection", client => {
                 switch (msg.cmd) {
                     case "register": 
                         client.send(safeJsonStringify(db.createUser({ email: msg.email, pwd: msg.pwd })))
-                    ;break; 
+                    break; 
                     case "auth":
                         client.send(safeJsonStringify(db.getUserToken({ email: msg.email, pwd: msg.pwd })))  
-                    ;break; 
+                    break; 
                     case "update":
                         client.send(safeJsonStringify(db.updateUserToken({ updateKey: msg.updateKey })))
-                    ;break;
+                    break;
                     case "login":
                         client.send(safeJsonStringify(db.getUserObj({ token: msg.token })))
-                    ;break;
+                    break;
                 }
             })
             .catch(e => client.send(safeJsonStringify({ status: 400, error: "command not found" })))
